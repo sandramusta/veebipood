@@ -17,7 +17,7 @@ import java.util.List;
 @Log4j2
 @RestController// võimaldab front-endil teha back-endi päringuid
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200", "https://veebipood-frontend-a9oo.onrender.com"})
 public class OrderController {
 
     private final OrderRepository orderRepository;

@@ -14,7 +14,7 @@ import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 @RestController// võimaldab front-endil teha back-endi päringuid
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200", "https://veebipood-frontend-a9oo.onrender.com"})
 public class PersonController {
 
     //private String url;
