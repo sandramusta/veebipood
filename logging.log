@@ -1,246 +1,37 @@
-2026-09-10T15:50:25.642+03:00  WARN 9704 --- [veebipood] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1d16h9m20s837ms706µs400ns).
-2026-09-10T15:55:21.837+03:00  WARN 9704 --- [veebipood] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@2ddc8d81 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
-2026-09-10T15:55:27.873+03:00  WARN 9704 --- [veebipood] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@239d2d5f (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
-2026-09-10T15:55:28.657+03:00  WARN 9704 --- [veebipood] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@391027b9 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
-2026-09-10T15:55:30.560+03:00  WARN 9704 --- [veebipood] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@70d0b1ef (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
-2026-09-10T15:55:35.395+03:00  WARN 9704 --- [veebipood] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@3a6d9d7f (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
-2026-09-10T15:55:44.971+03:00  WARN 9704 --- [veebipood] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@2591a9e (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
-2026-09-10T15:55:51.611+03:00  WARN 9704 --- [veebipood] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@4fe649ec (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
-2026-09-10T15:55:54.446+03:00  WARN 9704 --- [veebipood] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@53f1c758 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
-2026-09-10T15:56:12.812+03:00  WARN 9704 --- [veebipood] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@f251575 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
-2026-09-10T15:56:18.285+03:00  WARN 9704 --- [veebipood] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@5e7347f3 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
-2026-09-10T15:56:22.247+03:00  WARN 9704 --- [veebipood] [HikariPool-1:connection-adder] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Pool is empty, failed to create/setup connection (b4157a02-631b-4032-86d5-7883169d9449)
-
-org.postgresql.util.PSQLException: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:425) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:52) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:290) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.Driver.makeConnection(Driver.java:448) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.11.jar:42.7.11]
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:373) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:210) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:752) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:731) ~[HikariCP-7.0.2.jar:na]
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-Caused by: java.net.ConnectException: Connection refused: getsockopt
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:694) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592) ~[na:na]
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
-	at java.base/java.net.Socket.connect(Socket.java:751) ~[na:na]
-	at org.postgresql.core.PGStream.createSocket(PGStream.java:271) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.core.PGStream.<init>(PGStream.java:132) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:219) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:365) ~[postgresql-42.7.11.jar:42.7.11]
-	... 14 common frames omitted
-
-2026-09-10T15:57:27.725+03:00  WARN 9704 --- [veebipood] [HikariPool-1:connection-adder] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Pool is empty, failed to create/setup connection (8cb6a17f-e916-4465-8b6b-8b206b6fb78c)
-
-org.postgresql.util.PSQLException: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:425) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:52) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:290) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.Driver.makeConnection(Driver.java:448) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.11.jar:42.7.11]
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:373) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:210) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:752) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:731) ~[HikariCP-7.0.2.jar:na]
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-Caused by: java.net.ConnectException: Connection refused: getsockopt
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:694) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592) ~[na:na]
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
-	at java.base/java.net.Socket.connect(Socket.java:751) ~[na:na]
-	at org.postgresql.core.PGStream.createSocket(PGStream.java:271) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.core.PGStream.<init>(PGStream.java:132) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:219) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:365) ~[postgresql-42.7.11.jar:42.7.11]
-	... 14 common frames omitted
-
-2026-09-10T15:58:32.864+03:00  WARN 9704 --- [veebipood] [HikariPool-1:connection-adder] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Pool is empty, failed to create/setup connection (47f469f8-cc9a-4483-94fd-8e3d40a91a8c)
-
-org.postgresql.util.PSQLException: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:425) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:52) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:290) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.Driver.makeConnection(Driver.java:448) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.11.jar:42.7.11]
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:373) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:210) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:752) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:731) ~[HikariCP-7.0.2.jar:na]
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-Caused by: java.net.ConnectException: Connection refused: getsockopt
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:694) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592) ~[na:na]
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
-	at java.base/java.net.Socket.connect(Socket.java:751) ~[na:na]
-	at org.postgresql.core.PGStream.createSocket(PGStream.java:271) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.core.PGStream.<init>(PGStream.java:132) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:219) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:365) ~[postgresql-42.7.11.jar:42.7.11]
-	... 14 common frames omitted
-
-2026-09-10T15:59:38.069+03:00  WARN 9704 --- [veebipood] [HikariPool-1:connection-adder] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Pool is empty, failed to create/setup connection (fca4072d-30cb-4783-acec-68bd1ea97c13)
-
-org.postgresql.util.PSQLException: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:425) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:52) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:290) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.Driver.makeConnection(Driver.java:448) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.11.jar:42.7.11]
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:373) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:210) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:752) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:731) ~[HikariCP-7.0.2.jar:na]
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-Caused by: java.net.ConnectException: Connection refused: getsockopt
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:694) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592) ~[na:na]
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
-	at java.base/java.net.Socket.connect(Socket.java:751) ~[na:na]
-	at org.postgresql.core.PGStream.createSocket(PGStream.java:271) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.core.PGStream.<init>(PGStream.java:132) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:219) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:365) ~[postgresql-42.7.11.jar:42.7.11]
-	... 14 common frames omitted
-
-2026-09-10T16:00:43.306+03:00  WARN 9704 --- [veebipood] [HikariPool-1:connection-adder] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Pool is empty, failed to create/setup connection (80a822fb-e8c0-47f3-b6e4-3635ee936fe0)
-
-org.postgresql.util.PSQLException: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:425) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:52) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:290) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.Driver.makeConnection(Driver.java:448) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.11.jar:42.7.11]
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:373) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:210) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:752) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:731) ~[HikariCP-7.0.2.jar:na]
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-Caused by: java.net.ConnectException: Connection refused: getsockopt
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:694) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592) ~[na:na]
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
-	at java.base/java.net.Socket.connect(Socket.java:751) ~[na:na]
-	at org.postgresql.core.PGStream.createSocket(PGStream.java:271) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.core.PGStream.<init>(PGStream.java:132) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:219) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:365) ~[postgresql-42.7.11.jar:42.7.11]
-	... 14 common frames omitted
-
-2026-09-10T16:01:48.489+03:00  WARN 9704 --- [veebipood] [HikariPool-1:connection-adder] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Pool is empty, failed to create/setup connection (222f004d-2716-44c6-833c-788624c5d9c4)
-
-org.postgresql.util.PSQLException: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:425) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:52) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:290) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.Driver.makeConnection(Driver.java:448) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.11.jar:42.7.11]
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:373) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:210) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:752) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:731) ~[HikariCP-7.0.2.jar:na]
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-Caused by: java.net.ConnectException: Connection refused: getsockopt
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:694) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592) ~[na:na]
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
-	at java.base/java.net.Socket.connect(Socket.java:751) ~[na:na]
-	at org.postgresql.core.PGStream.createSocket(PGStream.java:271) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.core.PGStream.<init>(PGStream.java:132) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:219) ~[postgresql-42.7.11.jar:42.7.11]
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:365) ~[postgresql-42.7.11.jar:42.7.11]
-	... 14 common frames omitted
-
-2026-09-10T17:38:25.394+03:00  INFO 32244 --- [veebipood] [main] e.s.veebipood.VeebipoodApplicationTests  : Starting VeebipoodApplicationTests using Java 21.0.12 with PID 32244 (started by sandr in C:\Users\sandr\OneDrive\Desktop\Tarkvaraarendus\veebipood)
-2026-09-10T17:38:25.398+03:00  INFO 32244 --- [veebipood] [main] e.s.veebipood.VeebipoodApplicationTests  : No active profile set, falling back to 1 default profile: "default"
-2026-09-10T17:38:31.248+03:00  INFO 32244 --- [veebipood] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-09-10T17:38:31.491+03:00  INFO 32244 --- [veebipood] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 202 ms. Found 4 JPA repository interfaces.
-2026-09-10T17:38:33.443+03:00  INFO 32244 --- [veebipood] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-09-10T17:38:33.950+03:00  INFO 32244 --- [veebipood] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
-2026-09-10T17:38:36.092+03:00  INFO 32244 --- [veebipood] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-09-10T17:38:36.232+03:00  INFO 32244 --- [veebipood] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-09-10T17:38:37.010+03:00  INFO 32244 --- [veebipood] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@37753b69
-2026-09-10T17:38:37.014+03:00  INFO 32244 --- [veebipood] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-09-10T17:38:37.352+03:00  INFO 32244 --- [veebipood] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [jdbc:postgresql://localhost:5432/veebipood]
-	Database driver: PostgreSQL JDBC Driver
-	Database dialect: PostgreSQLDialect
-	Database version: 18.6
-	Default catalog/schema: veebipood/public
-	Autocommit mode: undefined/unknown
-	Isolation level: READ_COMMITTED [default READ_COMMITTED]
-	JDBC fetch size: none
-	Pool: DataSourceConnectionProvider
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2026-09-10T17:38:43.579+03:00  INFO 32244 --- [veebipood] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-09-10T17:38:43.958+03:00  INFO 32244 --- [veebipood] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-09-10T17:38:44.239+03:00  INFO 32244 --- [veebipood] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-09-10T17:38:46.395+03:00  WARN 32244 --- [veebipood] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-09-10T17:38:46.595+03:00  INFO 32244 --- [veebipood] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
-2026-09-10T17:38:48.470+03:00  INFO 32244 --- [veebipood] [main] e.s.veebipood.VeebipoodApplicationTests  : Started VeebipoodApplicationTests in 24.381 seconds (process running for 28.108)
-2026-09-10T17:38:49.791+03:00  INFO 32244 --- [veebipood] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-09-10T17:38:49.797+03:00  INFO 32244 --- [veebipood] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-09-10T17:38:49.837+03:00  INFO 32244 --- [veebipood] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2026-09-10T18:52:44.933+03:00  INFO 22584 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : Starting VeebipoodApplication using Java 21.0.12 with PID 22584 (C:\Users\sandr\OneDrive\Desktop\Tarkvaraarendus\veebipood\target\classes started by sandr in C:\Users\sandr\OneDrive\Desktop\Tarkvaraarendus\veebipood)
-2026-09-10T18:52:44.942+03:00  INFO 22584 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : The following 1 profile is active: "prod"
-2026-09-10T18:52:46.831+03:00  INFO 22584 --- [veebipood] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-09-10T18:52:47.000+03:00  INFO 22584 --- [veebipood] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 138 ms. Found 4 JPA repository interfaces.
-2026-09-10T18:52:48.312+03:00  INFO 22584 --- [veebipood] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
-2026-09-10T18:52:48.358+03:00  INFO 22584 --- [veebipood] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-09-10T18:52:48.358+03:00  INFO 22584 --- [veebipood] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-09-10T18:52:48.555+03:00  INFO 22584 --- [veebipood] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 3492 ms
-2026-09-10T18:52:49.052+03:00  INFO 22584 --- [veebipood] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-09-10T18:52:49.184+03:00  INFO 22584 --- [veebipood] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
-2026-09-10T18:52:50.621+03:00  INFO 22584 --- [veebipood] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-09-10T18:52:50.710+03:00  INFO 22584 --- [veebipood] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-09-10T18:52:52.891+03:00  INFO 22584 --- [veebipood] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@23e9dd78
-2026-09-10T18:52:52.894+03:00  INFO 22584 --- [veebipood] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-09-10T18:52:53.257+03:00  INFO 22584 --- [veebipood] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2026-09-16T17:35:06.022+03:00  WARN 32128 --- [veebipood] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@57515944 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-09-16T17:35:06.157+03:00  WARN 32128 --- [veebipood] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@682c754a (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-09-16T17:35:06.157+03:00  WARN 32128 --- [veebipood] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=20h53m58s652ms444µs500ns).
+2026-09-16T17:35:06.168+03:00  WARN 32128 --- [veebipood] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@4327435b (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-09-16T17:35:06.177+03:00  WARN 32128 --- [veebipood] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@6d4145e3 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-09-16T17:35:06.191+03:00  WARN 32128 --- [veebipood] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@66cceb24 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-09-16T17:35:06.191+03:00  WARN 32128 --- [veebipood] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@4d6a928 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-09-16T17:35:06.224+03:00  WARN 32128 --- [veebipood] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@7d120f72 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-09-16T17:35:06.236+03:00  WARN 32128 --- [veebipood] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@1a1b236e (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-09-16T17:35:06.256+03:00  WARN 32128 --- [veebipood] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@1b8f6ec2 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-09-16T17:35:06.258+03:00  WARN 32128 --- [veebipood] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@2aa10b72 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-09-16T17:42:12.970+03:00  INFO 32128 --- [veebipood] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-09-16T17:42:13.216+03:00  INFO 32128 --- [veebipood] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-09-16T17:42:13.293+03:00  INFO 32128 --- [veebipood] [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2026-09-16T17:42:13.297+03:00  INFO 32128 --- [veebipood] [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@7b80ac30]]
+2026-09-16T17:42:13.299+03:00  INFO 32128 --- [veebipood] [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2026-09-16T17:42:13.427+03:00  INFO 32128 --- [veebipood] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-09-16T17:42:13.576+03:00  INFO 32128 --- [veebipood] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-09-16T17:42:14.001+03:00  INFO 32128 --- [veebipood] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-09-16T17:44:01.686+03:00  INFO 40840 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : Starting VeebipoodApplication using Java 21.0.12 with PID 40840 (C:\Users\sandr\OneDrive\Desktop\Tarkvaraarendus\veebipood\target\classes started by sandr in C:\Users\sandr\OneDrive\Desktop\Tarkvaraarendus\veebipood)
+2026-09-16T17:44:01.701+03:00  INFO 40840 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : The following 1 profile is active: "prod"
+2026-09-16T17:44:06.815+03:00  INFO 40840 --- [veebipood] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-16T17:44:07.088+03:00  INFO 40840 --- [veebipood] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 227 ms. Found 4 JPA repository interfaces.
+2026-09-16T17:44:11.262+03:00  INFO 40840 --- [veebipood] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-09-16T17:44:11.350+03:00  INFO 40840 --- [veebipood] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-09-16T17:44:11.352+03:00  INFO 40840 --- [veebipood] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-09-16T17:44:11.737+03:00  INFO 40840 --- [veebipood] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 9856 ms
+2026-09-16T17:44:12.365+03:00  INFO 40840 --- [veebipood] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-16T17:44:12.902+03:00  INFO 40840 --- [veebipood] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-09-16T17:44:15.446+03:00  INFO 40840 --- [veebipood] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-16T17:44:15.889+03:00  INFO 40840 --- [veebipood] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-09-16T17:44:18.137+03:00  INFO 40840 --- [veebipood] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6dde1bf5
+2026-09-16T17:44:18.144+03:00  INFO 40840 --- [veebipood] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-09-16T17:44:18.886+03:00  INFO 40840 --- [veebipood] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [jdbc:postgresql://dpg-dahd0r95efls73dir1v0-a.frankfurt-postgres.render.com/veebipood_f3xz]
 	Database driver: PostgreSQL JDBC Driver
 	Database dialect: PostgreSQLDialect
@@ -252,21 +43,169 @@ Caused by: java.net.ConnectException: Connection refused: getsockopt
 	Pool: DataSourceConnectionProvider
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-09-10T18:52:55.273+03:00  INFO 22584 --- [veebipood] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-09-10T18:52:55.772+03:00  WARN 22584 --- [veebipood] [main] org.hibernate.orm.jdbc.warn              : HHH000247: ErrorCode: 0, SQLState: 00000
-2026-09-10T18:52:55.774+03:00  WARN 22584 --- [veebipood] [main] org.hibernate.orm.jdbc.warn              : constraint "uko8tnkglv9n1eeqmo7de7em37n" of relation "person" does not exist, skipping
-2026-09-10T18:52:56.006+03:00  INFO 22584 --- [veebipood] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-09-10T18:52:56.286+03:00  INFO 22584 --- [veebipood] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-09-10T18:52:57.000+03:00  WARN 22584 --- [veebipood] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-09-10T18:52:57.080+03:00  INFO 22584 --- [veebipood] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
-2026-09-10T18:52:57.821+03:00  WARN 22584 --- [veebipood] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
-2026-09-10T18:52:57.823+03:00  INFO 22584 --- [veebipood] [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-09-10T18:52:57.828+03:00  INFO 22584 --- [veebipood] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-09-10T18:52:58.257+03:00  INFO 22584 --- [veebipood] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2026-09-10T18:52:58.299+03:00  INFO 22584 --- [veebipood] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+2026-09-16T17:44:25.436+03:00  INFO 40840 --- [veebipood] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-16T17:44:26.220+03:00  INFO 40840 --- [veebipood] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-16T17:44:26.485+03:00  INFO 40840 --- [veebipood] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-09-16T17:44:28.119+03:00  WARN 40840 --- [veebipood] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-16T17:44:28.146+03:00  INFO 40840 --- [veebipood] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-09-16T17:44:28.317+03:00  INFO 40840 --- [veebipood] [main] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page: class path resource [static/index.html]
+2026-09-16T17:44:29.518+03:00  INFO 40840 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2026-09-16T17:44:29.522+03:00  INFO 40840 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@79864d6]]
+2026-09-16T17:44:29.524+03:00  INFO 40840 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2026-09-16T17:44:29.595+03:00  INFO 40840 --- [veebipood] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-09-16T17:44:29.637+03:00  INFO 40840 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : Started VeebipoodApplication in 29.965 seconds (process running for 32.058)
+2026-09-16T17:44:29.880+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-09-16T17:44:29.881+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-09-16T17:44:29.887+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2026-09-16T17:44:33.599+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-2] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@5c69902c
+2026-09-16T17:44:37.579+03:00  WARN 40840 --- [veebipood] [clientInboundChannel-7] ration$PageModule$WarningLoggingModifier : Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2026-09-16T17:44:39.005+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-5] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@4bb0da07
+2026-09-16T17:44:42.764+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-9] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@29196d8c
+2026-09-16T17:44:46.617+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-8] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@39845d27
+2026-09-16T17:44:51.806+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-7] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@235b992f
+2026-09-16T17:44:56.702+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-10] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@481ad7c3
+2026-09-16T17:45:13.801+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-1] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@378e117b
+2026-09-16T17:45:19.106+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-2] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1a1e5535
+2026-09-16T17:45:20.109+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-6] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@54c4463e
+2026-09-16T17:45:21.497+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-3] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@74dedc9b
+2026-09-16T17:45:25.823+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-4] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@6b3286d4
+2026-09-16T17:45:29.511+03:00  INFO 40840 --- [veebipood] [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 9, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannel[pool size = 2, active threads = 0, queued tasks = 0, completed tasks = 2], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 7, completed tasks = 0]
+2026-09-16T17:45:30.640+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-9] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1d36154a
+2026-09-16T17:46:06.356+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-7] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@5fefac25
+2026-09-16T17:46:07.842+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-10] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@313f00df
+2026-09-16T17:46:09.111+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-1] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@19345c72
+2026-09-16T17:46:10.015+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-2] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1a38578a
+2026-09-16T17:46:10.756+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-6] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@2f878fd8
+2026-09-16T17:46:11.721+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-3] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@286dc51f
+2026-09-16T17:46:12.741+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-4] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1b5efcea
+2026-09-16T17:46:13.638+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-5] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@4fd614a7
+2026-09-16T17:46:14.701+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-9] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@44fc6de9
+2026-09-16T17:46:15.662+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-8] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@4ee7c200
+2026-09-16T17:46:16.075+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-7] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1de7a404
+2026-09-16T17:46:16.264+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-10] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@7158a16b
+2026-09-16T17:46:16.542+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-1] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@75cce6cd
+2026-09-16T17:46:16.959+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-2] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@19b6ad4
+2026-09-16T17:46:17.286+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-6] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@7607277b
+2026-09-16T17:46:17.685+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-3] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@5eae2aa8
+2026-09-16T17:46:18.115+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-4] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@3b407f81
+2026-09-16T17:46:18.775+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-5] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@6fba8d4c
+2026-09-16T17:46:19.173+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-9] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@38542900
+2026-09-16T17:46:25.643+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-8] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@71e04c22
+2026-09-16T17:46:28.876+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-10] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@684784b9
+2026-09-16T17:46:36.356+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-1] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@42d3e0c9
+2026-09-16T17:46:37.677+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-2] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@42996b8e
+2026-09-16T17:46:38.744+03:00  INFO 40840 --- [veebipood] [http-nio-8080-exec-6] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@5251f6f6
+2026-09-16T17:47:55.159+03:00  INFO 40840 --- [veebipood] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-09-16T17:47:55.185+03:00  INFO 40840 --- [veebipood] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-09-16T17:47:55.192+03:00  INFO 40840 --- [veebipood] [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2026-09-16T17:47:55.193+03:00  INFO 40840 --- [veebipood] [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@79864d6]]
+2026-09-16T17:47:55.194+03:00  INFO 40840 --- [veebipood] [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2026-09-16T17:47:55.201+03:00  INFO 40840 --- [veebipood] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-09-16T17:47:55.207+03:00  INFO 40840 --- [veebipood] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-09-16T17:47:55.564+03:00  INFO 40840 --- [veebipood] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-09-16T17:48:18.538+03:00  INFO 40844 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : Starting VeebipoodApplication using Java 21.0.12 with PID 40844 (C:\Users\sandr\OneDrive\Desktop\Tarkvaraarendus\veebipood\target\classes started by sandr in C:\Users\sandr\OneDrive\Desktop\Tarkvaraarendus\veebipood)
+2026-09-16T17:48:18.552+03:00  INFO 40844 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : The following 1 profile is active: "prod"
+2026-09-16T17:48:22.529+03:00  INFO 40844 --- [veebipood] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-16T17:48:22.878+03:00  INFO 40844 --- [veebipood] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 302 ms. Found 4 JPA repository interfaces.
+2026-09-16T17:48:25.305+03:00  INFO 40844 --- [veebipood] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-09-16T17:48:25.382+03:00  INFO 40844 --- [veebipood] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-09-16T17:48:25.384+03:00  INFO 40844 --- [veebipood] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-09-16T17:48:25.763+03:00  INFO 40844 --- [veebipood] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 6835 ms
+2026-09-16T17:48:26.767+03:00  INFO 40844 --- [veebipood] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-16T17:48:27.161+03:00  INFO 40844 --- [veebipood] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-09-16T17:48:30.787+03:00  INFO 40844 --- [veebipood] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-16T17:48:31.137+03:00  INFO 40844 --- [veebipood] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-09-16T17:48:33.978+03:00  INFO 40844 --- [veebipood] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@8585cdd
+2026-09-16T17:48:33.985+03:00  INFO 40844 --- [veebipood] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-09-16T17:48:34.176+03:00  INFO 35892 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : Starting VeebipoodApplication using Java 21.0.12 with PID 35892 (C:\Users\sandr\OneDrive\Desktop\Tarkvaraarendus\veebipood\target\classes started by sandr in C:\Users\sandr\OneDrive\Desktop\Tarkvaraarendus\veebipood)
+2026-09-16T17:48:34.187+03:00  INFO 35892 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : The following 1 profile is active: "prod"
+2026-09-16T17:48:34.500+03:00  INFO 40844 --- [veebipood] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://dpg-dahd0r95efls73dir1v0-a.frankfurt-postgres.render.com/veebipood_f3xz]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: veebipood_f3xz/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-16T17:48:40.560+03:00  INFO 35892 --- [veebipood] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-16T17:48:41.037+03:00  INFO 35892 --- [veebipood] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 428 ms. Found 4 JPA repository interfaces.
+2026-09-16T17:48:44.448+03:00  INFO 40844 --- [veebipood] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-16T17:48:44.629+03:00  INFO 35892 --- [veebipood] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-09-16T17:48:44.769+03:00  INFO 35892 --- [veebipood] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-09-16T17:48:44.769+03:00  INFO 35892 --- [veebipood] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-09-16T17:48:45.264+03:00  INFO 35892 --- [veebipood] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 10828 ms
+2026-09-16T17:48:45.422+03:00  INFO 40844 --- [veebipood] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-16T17:48:46.781+03:00  INFO 40844 --- [veebipood] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-09-16T17:48:47.490+03:00  INFO 35892 --- [veebipood] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-16T17:48:47.881+03:00  INFO 35892 --- [veebipood] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-09-16T17:48:49.299+03:00  WARN 40844 --- [veebipood] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-16T17:48:49.362+03:00  INFO 40844 --- [veebipood] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-09-16T17:48:49.903+03:00  INFO 40844 --- [veebipood] [main] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page: class path resource [static/index.html]
+2026-09-16T17:48:51.053+03:00  INFO 35892 --- [veebipood] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-16T17:48:51.203+03:00  INFO 35892 --- [veebipood] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-09-16T17:48:52.183+03:00  INFO 40844 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2026-09-16T17:48:52.185+03:00  INFO 40844 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@395ac2e5]]
+2026-09-16T17:48:52.187+03:00  INFO 40844 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2026-09-16T17:48:52.285+03:00  INFO 40844 --- [veebipood] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-09-16T17:48:52.335+03:00  INFO 40844 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : Started VeebipoodApplication in 36.51 seconds (process running for 40.815)
+2026-09-16T17:48:52.711+03:00  INFO 40844 --- [veebipood] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-09-16T17:48:52.717+03:00  INFO 40844 --- [veebipood] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-09-16T17:48:52.729+03:00  INFO 40844 --- [veebipood] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2026-09-16T17:48:52.875+03:00  INFO 40844 --- [veebipood] [http-nio-8080-exec-1] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1ae4b363
+2026-09-16T17:48:52.893+03:00  INFO 35892 --- [veebipood] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7a274521
+2026-09-16T17:48:52.922+03:00  INFO 35892 --- [veebipood] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-09-16T17:48:53.496+03:00  INFO 35892 --- [veebipood] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://dpg-dahd0r95efls73dir1v0-a.frankfurt-postgres.render.com/veebipood_f3xz]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: veebipood_f3xz/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-16T17:48:55.807+03:00  INFO 40844 --- [veebipood] [http-nio-8080-exec-2] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1ae4b363
+2026-09-16T17:48:56.912+03:00  INFO 40844 --- [veebipood] [http-nio-8080-exec-4] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1ae4b363
+2026-09-16T17:49:00.839+03:00  INFO 35892 --- [veebipood] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-16T17:49:01.379+03:00  WARN 40844 --- [veebipood] [clientInboundChannel-7] ration$PageModule$WarningLoggingModifier : Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2026-09-16T17:49:01.569+03:00  INFO 35892 --- [veebipood] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-16T17:49:01.607+03:00  INFO 40844 --- [veebipood] [http-nio-8080-exec-5] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1ae4b363
+2026-09-16T17:49:02.063+03:00  INFO 35892 --- [veebipood] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-09-16T17:49:02.749+03:00  INFO 40844 --- [veebipood] [http-nio-8080-exec-7] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1ae4b363
+2026-09-16T17:49:03.743+03:00  INFO 40844 --- [veebipood] [http-nio-8080-exec-9] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1ae4b363
+2026-09-16T17:49:04.548+03:00  INFO 40844 --- [veebipood] [http-nio-8080-exec-10] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1ae4b363
+2026-09-16T17:49:05.239+03:00  INFO 40844 --- [veebipood] [http-nio-8080-exec-1] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1ae4b363
+2026-09-16T17:49:05.267+03:00  WARN 35892 --- [veebipood] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-16T17:49:05.464+03:00  INFO 35892 --- [veebipood] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-09-16T17:49:05.779+03:00  INFO 40844 --- [veebipood] [http-nio-8080-exec-2] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1ae4b363
+2026-09-16T17:49:06.116+03:00  INFO 35892 --- [veebipood] [main] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page: class path resource [static/index.html]
+2026-09-16T17:49:06.648+03:00  INFO 40844 --- [veebipood] [http-nio-8080-exec-3] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1ae4b363
+2026-09-16T17:49:08.760+03:00  INFO 35892 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2026-09-16T17:49:08.763+03:00  INFO 35892 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@2914f916]]
+2026-09-16T17:49:08.764+03:00  INFO 35892 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2026-09-16T17:49:08.787+03:00  INFO 35892 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2026-09-16T17:49:08.788+03:00  INFO 35892 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@2914f916]]
+2026-09-16T17:49:08.788+03:00  INFO 35892 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2026-09-16T17:49:08.789+03:00  WARN 35892 --- [veebipood] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2026-09-16T17:49:08.795+03:00  INFO 35892 --- [veebipood] [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-09-16T17:49:08.799+03:00  INFO 35892 --- [veebipood] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-09-16T17:49:09.206+03:00  INFO 35892 --- [veebipood] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-09-16T17:49:09.272+03:00  INFO 35892 --- [veebipood] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2026-09-10T18:52:58.326+03:00 ERROR 22584 --- [veebipood] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+2026-09-16T17:49:09.380+03:00 ERROR 35892 --- [veebipood] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
 
 ***************************
 APPLICATION FAILED TO START
@@ -280,21 +219,47 @@ Action:
 
 Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
 
-2026-09-10T18:54:24.806+03:00  INFO 29732 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : Starting VeebipoodApplication using Java 21.0.12 with PID 29732 (C:\Users\sandr\OneDrive\Desktop\Tarkvaraarendus\veebipood\target\classes started by sandr in C:\Users\sandr\OneDrive\Desktop\Tarkvaraarendus\veebipood)
-2026-09-10T18:54:24.810+03:00  INFO 29732 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : The following 1 profile is active: "prod"
-2026-09-10T18:54:26.066+03:00  INFO 29732 --- [veebipood] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-09-10T18:54:26.151+03:00  INFO 29732 --- [veebipood] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 75 ms. Found 4 JPA repository interfaces.
-2026-09-10T18:54:26.937+03:00  INFO 29732 --- [veebipood] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
-2026-09-10T18:54:26.955+03:00  INFO 29732 --- [veebipood] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-09-10T18:54:26.955+03:00  INFO 29732 --- [veebipood] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-09-10T18:54:27.043+03:00  INFO 29732 --- [veebipood] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 2165 ms
-2026-09-10T18:54:27.397+03:00  INFO 29732 --- [veebipood] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-09-10T18:54:27.478+03:00  INFO 29732 --- [veebipood] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
-2026-09-10T18:54:28.228+03:00  INFO 29732 --- [veebipood] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-09-10T18:54:28.280+03:00  INFO 29732 --- [veebipood] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-09-10T18:54:30.161+03:00  INFO 29732 --- [veebipood] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@23e9dd78
-2026-09-10T18:54:30.165+03:00  INFO 29732 --- [veebipood] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-09-10T18:54:30.606+03:00  INFO 29732 --- [veebipood] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2026-09-16T17:49:11.031+03:00  INFO 40844 --- [veebipood] [http-nio-8080-exec-4] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1ae4b363
+2026-09-16T17:49:12.657+03:00  INFO 40844 --- [veebipood] [http-nio-8080-exec-8] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1ae4b363
+2026-09-16T17:49:12.901+03:00  INFO 40844 --- [veebipood] [http-nio-8080-exec-6] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1ae4b363
+2026-09-16T17:49:13.312+03:00  INFO 40844 --- [veebipood] [http-nio-8080-exec-5] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1ae4b363
+2026-09-16T17:49:13.672+03:00  INFO 40844 --- [veebipood] [http-nio-8080-exec-7] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1ae4b363
+2026-09-16T17:49:13.984+03:00  INFO 40844 --- [veebipood] [http-nio-8080-exec-9] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1ae4b363
+2026-09-16T17:49:14.313+03:00  INFO 40844 --- [veebipood] [http-nio-8080-exec-10] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1ae4b363
+2026-09-16T17:49:14.970+03:00  INFO 40844 --- [veebipood] [http-nio-8080-exec-1] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1ae4b363
+2026-09-16T17:49:16.252+03:00  INFO 40844 --- [veebipood] [http-nio-8080-exec-2] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1ae4b363
+2026-09-16T17:49:19.714+03:00  INFO 40844 --- [veebipood] [http-nio-8080-exec-3] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1ae4b363
+2026-09-16T17:49:21.580+03:00  INFO 40844 --- [veebipood] [http-nio-8080-exec-4] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1ae4b363
+2026-09-16T17:49:21.953+03:00  INFO 40844 --- [veebipood] [http-nio-8080-exec-8] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1ae4b363
+2026-09-16T17:49:22.297+03:00  INFO 40844 --- [veebipood] [http-nio-8080-exec-6] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1ae4b363
+2026-09-16T17:49:22.749+03:00  INFO 40844 --- [veebipood] [http-nio-8080-exec-5] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1ae4b363
+2026-09-16T17:49:23.043+03:00  INFO 40844 --- [veebipood] [http-nio-8080-exec-7] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1ae4b363
+2026-09-16T17:49:52.620+03:00  INFO 40844 --- [veebipood] [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 9, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannel[pool size = 2, active threads = 0, queued tasks = 0, completed tasks = 2], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 7, completed tasks = 0]
+2026-09-16T17:49:54.948+03:00  INFO 40844 --- [veebipood] [http-nio-8080-exec-3] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1ae4b363
+2026-09-16T17:49:55.410+03:00  INFO 40844 --- [veebipood] [http-nio-8080-exec-4] e.s.veebipood.service.SupplierService    : org.springframework.web.client.RestTemplate@1ae4b363
+2026-09-16T17:56:08.781+03:00  INFO 40844 --- [veebipood] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-09-16T17:56:08.805+03:00  INFO 40844 --- [veebipood] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-09-16T17:56:08.812+03:00  INFO 40844 --- [veebipood] [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2026-09-16T17:56:08.813+03:00  INFO 40844 --- [veebipood] [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@395ac2e5]]
+2026-09-16T17:56:08.813+03:00  INFO 40844 --- [veebipood] [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2026-09-16T17:56:08.818+03:00  INFO 40844 --- [veebipood] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-09-16T17:56:08.837+03:00  INFO 40844 --- [veebipood] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-09-16T17:56:09.209+03:00  INFO 40844 --- [veebipood] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-09-16T17:56:58.648+03:00  INFO 41136 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : Starting VeebipoodApplication using Java 21.0.12 with PID 41136 (C:\Users\sandr\OneDrive\Desktop\Tarkvaraarendus\veebipood\target\classes started by sandr in C:\Users\sandr\OneDrive\Desktop\Tarkvaraarendus\veebipood)
+2026-09-16T17:56:58.658+03:00  INFO 41136 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : The following 1 profile is active: "prod"
+2026-09-16T17:57:02.432+03:00  INFO 41136 --- [veebipood] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-16T17:57:02.657+03:00  INFO 41136 --- [veebipood] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 184 ms. Found 4 JPA repository interfaces.
+2026-09-16T17:57:04.362+03:00  INFO 41136 --- [veebipood] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-09-16T17:57:04.417+03:00  INFO 41136 --- [veebipood] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-09-16T17:57:04.419+03:00  INFO 41136 --- [veebipood] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-09-16T17:57:04.647+03:00  INFO 41136 --- [veebipood] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 5826 ms
+2026-09-16T17:57:05.344+03:00  INFO 41136 --- [veebipood] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-16T17:57:05.678+03:00  INFO 41136 --- [veebipood] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-09-16T17:57:07.431+03:00  INFO 41136 --- [veebipood] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-16T17:57:07.579+03:00  INFO 41136 --- [veebipood] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-09-16T17:57:09.158+03:00  INFO 41136 --- [veebipood] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@39ead1b7
+2026-09-16T17:57:09.163+03:00  INFO 41136 --- [veebipood] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-09-16T17:57:09.620+03:00  INFO 41136 --- [veebipood] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [jdbc:postgresql://dpg-dahd0r95efls73dir1v0-a.frankfurt-postgres.render.com/veebipood_f3xz]
 	Database driver: PostgreSQL JDBC Driver
 	Database dialect: PostgreSQLDialect
@@ -306,20 +271,352 @@ Identify and stop the process that's listening on port 8080 or configure this ap
 	Pool: DataSourceConnectionProvider
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-09-10T18:54:32.283+03:00  INFO 29732 --- [veebipood] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-09-10T18:54:32.729+03:00  INFO 29732 --- [veebipood] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-09-10T18:54:32.847+03:00  INFO 29732 --- [veebipood] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-09-10T18:54:33.357+03:00  WARN 29732 --- [veebipood] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-09-10T18:54:33.413+03:00  INFO 29732 --- [veebipood] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
-2026-09-10T18:54:34.003+03:00  INFO 29732 --- [veebipood] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
-2026-09-10T18:54:34.018+03:00  INFO 29732 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : Started VeebipoodApplication in 10.067 seconds (process running for 10.98)
-2026-09-10T18:56:24.727+03:00  INFO 29732 --- [veebipood] [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-09-10T18:56:24.728+03:00  INFO 29732 --- [veebipood] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-09-10T18:56:24.733+03:00  INFO 29732 --- [veebipood] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2026-09-10T18:56:25.341+03:00  WARN 29732 --- [veebipood] [http-nio-8080-exec-1] ration$PageModule$WarningLoggingModifier : Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+2026-09-16T17:57:15.156+03:00  INFO 41136 --- [veebipood] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-16T17:57:15.755+03:00  INFO 41136 --- [veebipood] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-16T17:57:16.211+03:00  INFO 41136 --- [veebipood] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-09-16T17:57:18.215+03:00  WARN 41136 --- [veebipood] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-16T17:57:18.271+03:00  INFO 41136 --- [veebipood] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-09-16T17:57:18.578+03:00  INFO 41136 --- [veebipood] [main] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page: class path resource [static/index.html]
+2026-09-16T17:57:20.213+03:00  INFO 41136 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2026-09-16T17:57:20.217+03:00  INFO 41136 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@1495f70]]
+2026-09-16T17:57:20.219+03:00  INFO 41136 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2026-09-16T17:57:20.307+03:00  INFO 41136 --- [veebipood] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-09-16T17:57:20.338+03:00  INFO 41136 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : Started VeebipoodApplication in 24.04 seconds (process running for 27.618)
+2026-09-16T17:57:47.018+03:00  INFO 41136 --- [veebipood] [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-09-16T17:57:47.019+03:00  INFO 41136 --- [veebipood] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-09-16T17:57:47.024+03:00  INFO 41136 --- [veebipood] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2026-09-16T17:57:49.908+03:00  WARN 41136 --- [veebipood] [clientInboundChannel-7] ration$PageModule$WarningLoggingModifier : Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
 	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
 	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
 
-2026-09-10T19:02:31.284+03:00  INFO 29732 --- [veebipood] [http-nio-8080-exec-9] e.s.v.controller.ProductController       : Võeti toode:1
-2026-09-10T19:02:37.244+03:00  INFO 29732 --- [veebipood] [http-nio-8080-exec-1] e.s.v.controller.ProductController       : Võeti toode:1
-2026-09-10T19:02:48.080+03:00  INFO 29732 --- [veebipood] [http-nio-8080-exec-2] e.s.v.controller.ProductController       : Võeti toode:1
+2026-09-16T17:58:20.258+03:00  INFO 41136 --- [veebipood] [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 9, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannel[pool size = 2, active threads = 0, queued tasks = 0, completed tasks = 2], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 7, completed tasks = 0]
+2026-09-16T18:11:59.509+03:00  INFO 41136 --- [veebipood] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-09-16T18:11:59.552+03:00  INFO 41136 --- [veebipood] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-09-16T18:11:59.568+03:00  INFO 41136 --- [veebipood] [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2026-09-16T18:11:59.569+03:00  INFO 41136 --- [veebipood] [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@1495f70]]
+2026-09-16T18:11:59.569+03:00  INFO 41136 --- [veebipood] [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2026-09-16T18:11:59.582+03:00  INFO 41136 --- [veebipood] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-09-16T18:11:59.588+03:00  INFO 41136 --- [veebipood] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-09-16T18:11:59.969+03:00  INFO 41136 --- [veebipood] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-09-16T18:13:21.422+03:00  INFO 38464 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : Starting VeebipoodApplication using Java 21.0.12 with PID 38464 (C:\Users\sandr\OneDrive\Desktop\Tarkvaraarendus\veebipood\target\classes started by sandr in C:\Users\sandr\OneDrive\Desktop\Tarkvaraarendus\veebipood)
+2026-09-16T18:13:21.435+03:00  INFO 38464 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : The following 1 profile is active: "prod"
+2026-09-16T18:13:25.067+03:00  INFO 38464 --- [veebipood] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-16T18:13:25.252+03:00  INFO 38464 --- [veebipood] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 157 ms. Found 4 JPA repository interfaces.
+2026-09-16T18:13:26.869+03:00  INFO 38464 --- [veebipood] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-09-16T18:13:26.915+03:00  INFO 38464 --- [veebipood] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-09-16T18:13:26.916+03:00  INFO 38464 --- [veebipood] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-09-16T18:13:27.140+03:00  INFO 38464 --- [veebipood] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 5174 ms
+2026-09-16T18:13:28.031+03:00  INFO 38464 --- [veebipood] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-16T18:13:28.367+03:00  INFO 38464 --- [veebipood] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-09-16T18:13:29.947+03:00  INFO 38464 --- [veebipood] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-16T18:13:30.051+03:00  INFO 38464 --- [veebipood] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-09-16T18:13:31.719+03:00  INFO 38464 --- [veebipood] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@33f2eb04
+2026-09-16T18:13:31.723+03:00  INFO 38464 --- [veebipood] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-09-16T18:13:32.167+03:00  INFO 38464 --- [veebipood] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://dpg-dahd0r95efls73dir1v0-a.frankfurt-postgres.render.com/veebipood_f3xz]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: veebipood_f3xz/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-16T18:13:35.676+03:00  INFO 38464 --- [veebipood] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-16T18:13:36.142+03:00  INFO 38464 --- [veebipood] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-16T18:13:36.381+03:00  INFO 38464 --- [veebipood] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-09-16T18:13:38.184+03:00  WARN 38464 --- [veebipood] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-16T18:13:38.216+03:00  INFO 38464 --- [veebipood] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-09-16T18:13:38.469+03:00  INFO 38464 --- [veebipood] [main] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page: class path resource [static/index.html]
+2026-09-16T18:13:39.428+03:00  INFO 38464 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2026-09-16T18:13:39.429+03:00  INFO 38464 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@2f29046b]]
+2026-09-16T18:13:39.430+03:00  INFO 38464 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2026-09-16T18:13:39.475+03:00  INFO 38464 --- [veebipood] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-09-16T18:13:39.503+03:00  INFO 38464 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : Started VeebipoodApplication in 20.745 seconds (process running for 24.484)
+2026-09-16T18:13:46.970+03:00  INFO 38464 --- [veebipood] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-09-16T18:13:46.974+03:00  INFO 38464 --- [veebipood] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-09-16T18:13:46.997+03:00  INFO 38464 --- [veebipood] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 19 ms
+2026-09-16T18:13:51.248+03:00  WARN 38464 --- [veebipood] [clientInboundChannel-7] ration$PageModule$WarningLoggingModifier : Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2026-09-16T18:14:39.430+03:00  INFO 38464 --- [veebipood] [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 9, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannel[pool size = 2, active threads = 0, queued tasks = 0, completed tasks = 2], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 7, completed tasks = 0]
+2026-09-16T18:20:57.167+03:00  INFO 38464 --- [veebipood] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-09-16T18:20:57.220+03:00  INFO 38464 --- [veebipood] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-09-16T18:20:57.231+03:00  INFO 38464 --- [veebipood] [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2026-09-16T18:20:57.234+03:00  INFO 38464 --- [veebipood] [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@2f29046b]]
+2026-09-16T18:20:57.234+03:00  INFO 38464 --- [veebipood] [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2026-09-16T18:20:57.244+03:00  INFO 38464 --- [veebipood] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-09-16T18:20:57.258+03:00  INFO 38464 --- [veebipood] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-09-16T18:20:57.653+03:00  INFO 38464 --- [veebipood] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-09-16T18:21:58.124+03:00  INFO 18824 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : Starting VeebipoodApplication using Java 21.0.12 with PID 18824 (C:\Users\sandr\OneDrive\Desktop\Tarkvaraarendus\veebipood\target\classes started by sandr in C:\Users\sandr\OneDrive\Desktop\Tarkvaraarendus\veebipood)
+2026-09-16T18:21:58.136+03:00  INFO 18824 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : The following 1 profile is active: "prod"
+2026-09-16T18:22:02.309+03:00  INFO 18824 --- [veebipood] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-16T18:22:02.698+03:00  INFO 18824 --- [veebipood] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 329 ms. Found 4 JPA repository interfaces.
+2026-09-16T18:22:06.899+03:00  INFO 18824 --- [veebipood] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-09-16T18:22:07.148+03:00  INFO 18824 --- [veebipood] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-09-16T18:22:07.165+03:00  INFO 18824 --- [veebipood] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-09-16T18:22:07.775+03:00  INFO 18824 --- [veebipood] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 9491 ms
+2026-09-16T18:22:08.964+03:00  INFO 18824 --- [veebipood] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-16T18:22:09.411+03:00  INFO 18824 --- [veebipood] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-09-16T18:22:13.777+03:00  INFO 18824 --- [veebipood] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-16T18:22:14.004+03:00  INFO 18824 --- [veebipood] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-09-16T18:22:15.877+03:00  INFO 18824 --- [veebipood] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@50b38342
+2026-09-16T18:22:15.883+03:00  INFO 18824 --- [veebipood] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-09-16T18:22:16.413+03:00  INFO 18824 --- [veebipood] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://dpg-dahd0r95efls73dir1v0-a.frankfurt-postgres.render.com/veebipood_f3xz]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: veebipood_f3xz/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-16T18:22:21.970+03:00  INFO 18824 --- [veebipood] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-16T18:22:22.551+03:00  INFO 18824 --- [veebipood] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-16T18:22:22.871+03:00  INFO 18824 --- [veebipood] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-09-16T18:22:25.081+03:00  WARN 18824 --- [veebipood] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-16T18:22:25.106+03:00  INFO 18824 --- [veebipood] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-09-16T18:22:25.489+03:00  INFO 18824 --- [veebipood] [main] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page: class path resource [static/index.html]
+2026-09-16T18:22:26.616+03:00  INFO 18824 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2026-09-16T18:22:26.617+03:00  INFO 18824 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@305230ea]]
+2026-09-16T18:22:26.619+03:00  INFO 18824 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2026-09-16T18:22:26.666+03:00  INFO 18824 --- [veebipood] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-09-16T18:22:26.685+03:00  INFO 18824 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : Started VeebipoodApplication in 31.037 seconds (process running for 33.686)
+2026-09-16T18:23:26.621+03:00  INFO 18824 --- [veebipood] [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 7, completed tasks = 0]
+2026-09-16T18:23:29.892+03:00  INFO 18824 --- [veebipood] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-09-16T18:23:29.893+03:00  INFO 18824 --- [veebipood] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-09-16T18:23:29.899+03:00  INFO 18824 --- [veebipood] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2026-09-16T18:23:35.550+03:00  WARN 18824 --- [veebipood] [clientInboundChannel-7] ration$PageModule$WarningLoggingModifier : Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2026-09-16T18:26:49.997+03:00  INFO 18824 --- [veebipood] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-09-16T18:26:50.059+03:00  INFO 18824 --- [veebipood] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-09-16T18:26:50.072+03:00  INFO 18824 --- [veebipood] [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2026-09-16T18:26:50.073+03:00  INFO 18824 --- [veebipood] [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@305230ea]]
+2026-09-16T18:26:50.073+03:00  INFO 18824 --- [veebipood] [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2026-09-16T18:26:50.082+03:00  INFO 18824 --- [veebipood] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-09-16T18:26:50.090+03:00  INFO 18824 --- [veebipood] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-09-16T18:26:50.480+03:00  INFO 18824 --- [veebipood] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-09-16T18:27:23.618+03:00  INFO 27932 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : Starting VeebipoodApplication using Java 21.0.12 with PID 27932 (C:\Users\sandr\OneDrive\Desktop\Tarkvaraarendus\veebipood\target\classes started by sandr in C:\Users\sandr\OneDrive\Desktop\Tarkvaraarendus\veebipood)
+2026-09-16T18:27:23.625+03:00  INFO 27932 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : The following 1 profile is active: "prod"
+2026-09-16T18:27:25.946+03:00  INFO 27932 --- [veebipood] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-16T18:27:26.094+03:00  INFO 27932 --- [veebipood] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 127 ms. Found 4 JPA repository interfaces.
+2026-09-16T18:27:27.564+03:00  INFO 27932 --- [veebipood] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-09-16T18:27:27.604+03:00  INFO 27932 --- [veebipood] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-09-16T18:27:27.606+03:00  INFO 27932 --- [veebipood] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-09-16T18:27:27.834+03:00  INFO 27932 --- [veebipood] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 4052 ms
+2026-09-16T18:27:28.357+03:00  INFO 27932 --- [veebipood] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-16T18:27:28.559+03:00  INFO 27932 --- [veebipood] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-09-16T18:27:30.141+03:00  INFO 27932 --- [veebipood] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-16T18:27:30.261+03:00  INFO 27932 --- [veebipood] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-09-16T18:27:31.866+03:00  INFO 27932 --- [veebipood] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@33f2eb04
+2026-09-16T18:27:31.872+03:00  INFO 27932 --- [veebipood] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-09-16T18:27:32.265+03:00  INFO 27932 --- [veebipood] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://dpg-dahd0r95efls73dir1v0-a.frankfurt-postgres.render.com/veebipood_f3xz]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: veebipood_f3xz/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-16T18:27:36.812+03:00  INFO 27932 --- [veebipood] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-16T18:27:37.301+03:00  INFO 27932 --- [veebipood] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-16T18:27:37.524+03:00  INFO 27932 --- [veebipood] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-09-16T18:27:39.194+03:00  WARN 27932 --- [veebipood] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-16T18:27:39.247+03:00  INFO 27932 --- [veebipood] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-09-16T18:27:39.465+03:00  INFO 27932 --- [veebipood] [main] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page: class path resource [static/index.html]
+2026-09-16T18:27:40.435+03:00  INFO 27932 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2026-09-16T18:27:40.437+03:00  INFO 27932 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@30f0b75]]
+2026-09-16T18:27:40.438+03:00  INFO 27932 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2026-09-16T18:27:40.494+03:00  INFO 27932 --- [veebipood] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-09-16T18:27:40.515+03:00  INFO 27932 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : Started VeebipoodApplication in 18.181 seconds (process running for 19.451)
+2026-09-16T18:27:46.376+03:00  INFO 27932 --- [veebipood] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-09-16T18:27:46.379+03:00  INFO 27932 --- [veebipood] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-09-16T18:27:46.390+03:00  INFO 27932 --- [veebipood] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2026-09-16T18:27:57.950+03:00  WARN 27932 --- [veebipood] [http-nio-8080-exec-3] ration$PageModule$WarningLoggingModifier : Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2026-09-16T18:28:40.448+03:00  INFO 27932 --- [veebipood] [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 7, completed tasks = 0]
+2026-09-16T18:35:09.602+03:00  INFO 27932 --- [veebipood] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-09-16T18:35:09.924+03:00  INFO 27932 --- [veebipood] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-09-16T18:35:09.932+03:00  INFO 27932 --- [veebipood] [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2026-09-16T18:35:09.933+03:00  INFO 27932 --- [veebipood] [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@30f0b75]]
+2026-09-16T18:35:09.933+03:00  INFO 27932 --- [veebipood] [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2026-09-16T18:35:09.940+03:00  INFO 27932 --- [veebipood] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-09-16T18:35:09.950+03:00  INFO 27932 --- [veebipood] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-09-16T18:35:10.384+03:00  INFO 27932 --- [veebipood] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-09-16T18:36:12.849+03:00  INFO 9208 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : Starting VeebipoodApplication using Java 21.0.12 with PID 9208 (C:\Users\sandr\OneDrive\Desktop\Tarkvaraarendus\veebipood\target\classes started by sandr in C:\Users\sandr\OneDrive\Desktop\Tarkvaraarendus\veebipood)
+2026-09-16T18:36:12.858+03:00  INFO 9208 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : The following 1 profile is active: "prod"
+2026-09-16T18:36:16.779+03:00  INFO 9208 --- [veebipood] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-16T18:36:17.072+03:00  INFO 9208 --- [veebipood] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 239 ms. Found 4 JPA repository interfaces.
+2026-09-16T18:36:19.552+03:00  INFO 9208 --- [veebipood] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-09-16T18:36:19.653+03:00  INFO 9208 --- [veebipood] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-09-16T18:36:19.655+03:00  INFO 9208 --- [veebipood] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-09-16T18:36:20.037+03:00  INFO 9208 --- [veebipood] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 6979 ms
+2026-09-16T18:36:21.106+03:00  INFO 9208 --- [veebipood] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-16T18:36:21.470+03:00  INFO 9208 --- [veebipood] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-09-16T18:36:23.937+03:00  INFO 9208 --- [veebipood] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-16T18:36:24.200+03:00  INFO 9208 --- [veebipood] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-09-16T18:36:25.886+03:00  INFO 9208 --- [veebipood] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4df13dd0
+2026-09-16T18:36:25.890+03:00  INFO 9208 --- [veebipood] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-09-16T18:36:26.391+03:00  INFO 9208 --- [veebipood] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://dpg-dahd0r95efls73dir1v0-a.frankfurt-postgres.render.com/veebipood_f3xz]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: veebipood_f3xz/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-16T18:36:31.263+03:00  INFO 9208 --- [veebipood] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-16T18:36:31.958+03:00  INFO 9208 --- [veebipood] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-16T18:36:32.291+03:00  INFO 9208 --- [veebipood] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-09-16T18:36:34.819+03:00  WARN 9208 --- [veebipood] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-16T18:36:34.861+03:00  INFO 9208 --- [veebipood] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-09-16T18:36:35.111+03:00  INFO 9208 --- [veebipood] [main] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page: class path resource [static/index.html]
+2026-09-16T18:36:36.562+03:00  INFO 9208 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2026-09-16T18:36:36.564+03:00  INFO 9208 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@a824f87]]
+2026-09-16T18:36:36.566+03:00  INFO 9208 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2026-09-16T18:36:36.644+03:00  INFO 9208 --- [veebipood] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-09-16T18:36:36.696+03:00  INFO 9208 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : Started VeebipoodApplication in 25.623 seconds (process running for 27.657)
+2026-09-16T18:36:37.135+03:00  INFO 9208 --- [veebipood] [http-nio-8080-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-09-16T18:36:37.135+03:00  INFO 9208 --- [veebipood] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-09-16T18:36:37.138+03:00  INFO 9208 --- [veebipood] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2026-09-16T18:37:36.566+03:00  INFO 9208 --- [veebipood] [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 7, completed tasks = 0]
+2026-09-16T19:00:10.436+03:00  INFO 9208 --- [veebipood] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-09-16T19:00:10.462+03:00  INFO 9208 --- [veebipood] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-09-16T19:00:10.466+03:00  INFO 9208 --- [veebipood] [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2026-09-16T19:00:10.466+03:00  INFO 9208 --- [veebipood] [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@a824f87]]
+2026-09-16T19:00:10.467+03:00  INFO 9208 --- [veebipood] [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2026-09-16T19:00:10.471+03:00  INFO 9208 --- [veebipood] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-09-16T19:00:10.475+03:00  INFO 9208 --- [veebipood] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-09-16T19:00:10.830+03:00  INFO 9208 --- [veebipood] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-09-16T19:01:00.755+03:00  INFO 33044 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : Starting VeebipoodApplication using Java 21.0.12 with PID 33044 (C:\Users\sandr\OneDrive\Desktop\Tarkvaraarendus\veebipood\target\classes started by sandr in C:\Users\sandr\OneDrive\Desktop\Tarkvaraarendus\veebipood)
+2026-09-16T19:01:00.762+03:00  INFO 33044 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : The following 1 profile is active: "prod"
+2026-09-16T19:01:03.821+03:00  INFO 33044 --- [veebipood] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-16T19:01:04.004+03:00  INFO 33044 --- [veebipood] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 146 ms. Found 4 JPA repository interfaces.
+2026-09-16T19:01:05.963+03:00  INFO 33044 --- [veebipood] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-09-16T19:01:06.055+03:00  INFO 33044 --- [veebipood] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-09-16T19:01:06.057+03:00  INFO 33044 --- [veebipood] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-09-16T19:01:06.328+03:00  INFO 33044 --- [veebipood] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 5411 ms
+2026-09-16T19:01:06.927+03:00  INFO 33044 --- [veebipood] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-16T19:01:07.224+03:00  INFO 33044 --- [veebipood] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-09-16T19:01:09.099+03:00  INFO 33044 --- [veebipood] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-16T19:01:09.234+03:00  INFO 33044 --- [veebipood] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-09-16T19:01:10.822+03:00  INFO 33044 --- [veebipood] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5c2a3f0c
+2026-09-16T19:01:10.826+03:00  INFO 33044 --- [veebipood] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-09-16T19:01:11.253+03:00  INFO 33044 --- [veebipood] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://dpg-dahd0r95efls73dir1v0-a.frankfurt-postgres.render.com/veebipood_f3xz]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: veebipood_f3xz/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-16T19:01:15.056+03:00  INFO 33044 --- [veebipood] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-16T19:01:15.599+03:00  INFO 33044 --- [veebipood] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-16T19:01:16.199+03:00  INFO 33044 --- [veebipood] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-09-16T19:01:19.178+03:00  WARN 33044 --- [veebipood] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-16T19:01:19.219+03:00  INFO 33044 --- [veebipood] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-09-16T19:01:19.467+03:00  INFO 33044 --- [veebipood] [main] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page: class path resource [static/index.html]
+2026-09-16T19:01:20.850+03:00  INFO 33044 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2026-09-16T19:01:20.851+03:00  INFO 33044 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@7d45e754]]
+2026-09-16T19:01:20.853+03:00  INFO 33044 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2026-09-16T19:01:20.935+03:00  INFO 33044 --- [veebipood] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-09-16T19:01:20.976+03:00  INFO 33044 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : Started VeebipoodApplication in 21.957 seconds (process running for 24.49)
+2026-09-16T19:01:21.363+03:00  INFO 33044 --- [veebipood] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-09-16T19:01:21.364+03:00  INFO 33044 --- [veebipood] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-09-16T19:01:21.369+03:00  INFO 33044 --- [veebipood] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2026-09-16T19:01:21.536+03:00  INFO 33044 --- [veebipood] [http-nio-8080-exec-1] e.s.v.controller.ProductController       : Võeti toode:3
+2026-09-16T19:01:21.583+03:00  INFO 33044 --- [veebipood] [http-nio-8080-exec-1] e.sandra.veebipood.service.CacheService  : Ei võtnud cache-st, vaid andmebaasist
+2026-09-16T19:01:59.870+03:00  INFO 33044 --- [veebipood] [http-nio-8080-exec-2] e.s.v.controller.ProductController       : Võeti toode:3
+2026-09-16T19:01:59.881+03:00  INFO 33044 --- [veebipood] [http-nio-8080-exec-2] e.sandra.veebipood.service.CacheService  : Ei võtnud cache-st, vaid andmebaasist
+2026-09-16T19:02:10.254+03:00  INFO 33044 --- [veebipood] [http-nio-8080-exec-3] e.s.v.controller.ProductController       : Võeti toode:3
+2026-09-16T19:02:10.256+03:00  INFO 33044 --- [veebipood] [http-nio-8080-exec-3] e.sandra.veebipood.service.CacheService  : Ei võtnud cache-st, vaid andmebaasist
+2026-09-16T19:02:11.738+03:00  INFO 33044 --- [veebipood] [http-nio-8080-exec-4] e.s.v.controller.ProductController       : Võeti toode:3
+2026-09-16T19:02:12.497+03:00  INFO 33044 --- [veebipood] [http-nio-8080-exec-5] e.s.v.controller.ProductController       : Võeti toode:3
+2026-09-16T19:02:12.780+03:00  INFO 33044 --- [veebipood] [http-nio-8080-exec-9] e.s.v.controller.ProductController       : Võeti toode:3
+2026-09-16T19:02:13.138+03:00  INFO 33044 --- [veebipood] [http-nio-8080-exec-10] e.s.v.controller.ProductController       : Võeti toode:3
+2026-09-16T19:02:13.966+03:00  INFO 33044 --- [veebipood] [http-nio-8080-exec-6] e.s.v.controller.ProductController       : Võeti toode:3
+2026-09-16T19:02:14.170+03:00  INFO 33044 --- [veebipood] [http-nio-8080-exec-8] e.s.v.controller.ProductController       : Võeti toode:3
+2026-09-16T19:02:15.095+03:00  INFO 33044 --- [veebipood] [http-nio-8080-exec-7] e.s.v.controller.ProductController       : Võeti toode:3
+2026-09-16T19:02:15.373+03:00  INFO 33044 --- [veebipood] [http-nio-8080-exec-1] e.s.v.controller.ProductController       : Võeti toode:3
+2026-09-16T19:02:16.187+03:00  INFO 33044 --- [veebipood] [http-nio-8080-exec-2] e.s.v.controller.ProductController       : Võeti toode:3
+2026-09-16T19:02:20.858+03:00  INFO 33044 --- [veebipood] [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 7, completed tasks = 0]
+2026-09-16T19:05:57.361+03:00  WARN 33044 --- [veebipood] [http-nio-8080-exec-5] ration$PageModule$WarningLoggingModifier : Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2026-09-16T19:32:20.892+03:00  INFO 33044 --- [veebipood] [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 7, completed tasks = 1]
+2026-09-16T20:54:51.295+03:00  INFO 25672 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : Starting VeebipoodApplication using Java 21.0.12 with PID 25672 (C:\Users\sandr\OneDrive\Desktop\Tarkvaraarendus\veebipood\target\classes started by sandr in C:\Users\sandr\OneDrive\Desktop\Tarkvaraarendus\veebipood)
+2026-09-16T20:54:51.301+03:00  INFO 25672 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : The following 1 profile is active: "prod"
+2026-09-16T20:54:52.636+03:00  INFO 25672 --- [veebipood] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-09-16T20:54:52.638+03:00  INFO 25672 --- [veebipood] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-16T20:54:52.845+03:00  INFO 25672 --- [veebipood] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 193 ms. Found 4 JPA repository interfaces.
+2026-09-16T20:54:52.924+03:00  INFO 25672 --- [veebipood] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-09-16T20:54:52.926+03:00  INFO 25672 --- [veebipood] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-09-16T20:54:52.947+03:00  INFO 25672 --- [veebipood] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface ee.sandra.veebipood.repository.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-09-16T20:54:52.948+03:00  INFO 25672 --- [veebipood] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface ee.sandra.veebipood.repository.OrderRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-09-16T20:54:52.950+03:00  INFO 25672 --- [veebipood] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface ee.sandra.veebipood.repository.PersonRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-09-16T20:54:52.950+03:00  INFO 25672 --- [veebipood] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface ee.sandra.veebipood.repository.ProductRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-09-16T20:54:52.950+03:00  INFO 25672 --- [veebipood] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2026-09-16T20:54:53.839+03:00  INFO 25672 --- [veebipood] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-09-16T20:54:53.866+03:00  INFO 25672 --- [veebipood] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-09-16T20:54:53.867+03:00  INFO 25672 --- [veebipood] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-09-16T20:54:53.997+03:00  INFO 25672 --- [veebipood] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 2563 ms
+2026-09-16T20:54:54.326+03:00  INFO 25672 --- [veebipood] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-16T20:54:54.462+03:00  INFO 25672 --- [veebipood] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-09-16T20:54:55.298+03:00  INFO 25672 --- [veebipood] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-16T20:54:55.346+03:00  INFO 25672 --- [veebipood] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-09-16T20:54:56.358+03:00  INFO 25672 --- [veebipood] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@446a692f
+2026-09-16T20:54:56.360+03:00  INFO 25672 --- [veebipood] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-09-16T20:54:56.693+03:00  INFO 25672 --- [veebipood] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://dpg-dahd0r95efls73dir1v0-a.frankfurt-postgres.render.com/veebipood_f3xz]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: veebipood_f3xz/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-16T20:54:58.194+03:00  INFO 25672 --- [veebipood] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-16T20:54:58.589+03:00  INFO 25672 --- [veebipood] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-16T20:54:58.707+03:00  INFO 25672 --- [veebipood] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-09-16T20:55:00.020+03:00  WARN 25672 --- [veebipood] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-16T20:55:00.045+03:00  INFO 25672 --- [veebipood] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-09-16T20:55:00.175+03:00  INFO 25672 --- [veebipood] [main] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page: class path resource [static/index.html]
+2026-09-16T20:55:00.818+03:00  INFO 25672 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2026-09-16T20:55:00.818+03:00  INFO 25672 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@7740028a]]
+2026-09-16T20:55:00.820+03:00  INFO 25672 --- [veebipood] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2026-09-16T20:55:00.846+03:00  INFO 25672 --- [veebipood] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-09-16T20:55:00.859+03:00  INFO 25672 --- [veebipood] [main] e.sandra.veebipood.VeebipoodApplication  : Started VeebipoodApplication in 10.464 seconds (process running for 11.405)
+2026-09-16T20:55:50.037+03:00  INFO 25672 --- [veebipood] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-09-16T20:55:50.056+03:00  INFO 25672 --- [veebipood] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-09-16T20:55:50.060+03:00  INFO 25672 --- [veebipood] [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2026-09-16T20:55:50.060+03:00  INFO 25672 --- [veebipood] [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@7740028a]]
+2026-09-16T20:55:50.060+03:00  INFO 25672 --- [veebipood] [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2026-09-16T20:55:50.091+03:00  INFO 25672 --- [veebipood] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-09-16T20:55:50.096+03:00  INFO 25672 --- [veebipood] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-09-16T20:55:50.447+03:00  INFO 25672 --- [veebipood] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -17,6 +17,7 @@ public class Product {
     private String image;
     private Integer stock; //täisarvuline number
     private Boolean active;
+    private Double discount;
 
     @ManyToOne
     private Category category;

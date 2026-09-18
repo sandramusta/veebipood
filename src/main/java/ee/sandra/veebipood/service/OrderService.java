@@ -8,7 +8,11 @@ import ee.sandra.veebipood.entity.Product;
 import ee.sandra.veebipood.repository.OrderRepository;
 import ee.sandra.veebipood.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.*;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -22,6 +26,7 @@ public class OrderService {
 
     private final OrderRepository orderRepository;
     private final ProductRepository productRepository;
+    private final SimpMessagingTemplate messagingTemplate;
 
     public Order saveOrder(Long personId, List<Product> products) {
         Order order = new Order();
@@ -36,12 +41,21 @@ public class OrderService {
         double sum = 0;
         for (Product product: products) {
             Product dbProduct = productRepository.findById(product.getId()).orElseThrow();
+            dbProduct.setStock(dbProduct.getStock()-1);
+            productRepository.save(dbProduct);
             sum = sum + dbProduct.getPrice();
         }
         order.setTotal(sum);
         order.setPaymentState(PaymentState.INITIAL);
 
-        return orderRepository.save(order);
+        Order savedOrder = orderRepository.save(order);
+
+        // Telli nupu vajutamine muudab laoseisu, seega saadame WebSocketi kaudu värske allahinnatud toodete lehe
+        Page<Product> discountedProducts = productRepository.findByDiscountGreaterThanAndStockGreaterThan(
+                24, 0, PageRequest.of(0, 6, Sort.by("stock").ascending()));
+        messagingTemplate.convertAndSend("/topic/discount", discountedProducts);
+
+        return savedOrder;
     }
 
     public List<ParcelMachine> getParcelMachines(String country) {
